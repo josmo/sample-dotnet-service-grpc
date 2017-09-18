@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.classis.proto";
+option java_outer_classname = "EmployeeProto";
+option objc_class_prefix = "HLW";
+
+package proto;
+
+service EmployeeService {
+    rpc GetEmployee (EmployeeRequest) returns (Employee) {}
+    rpc GetEmployees (EmployeeRequest) returns (stream Employee) {}
+    rpc DeleteEmployee (EmployeeRequest) returns (DeleteEmployeeResult) {}
+    rpc CreateEmployee (Employee) returns (Employee) {}
+}
+
+message Employee {
+    string Status = 1;
+    string Name = 2;
+    int32 Id = 3;
+    int32 Age = 4;
+}
+
+message DeleteEmployeeResult {
+    bool success = 1;
+}
+
+message EmployeeRequest {
+    int64 Id = 1;
+}
+
