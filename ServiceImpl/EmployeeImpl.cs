@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.CodeAnalysis.Semantics;
 using proto1.contexts;
 using Proto;
 
@@ -36,8 +39,21 @@ namespace proto1.ServiceImpl
             {
                 await responseStream.WriteAsync(response);
             }
+            await Task.CompletedTask;
+
         }
 
+        public override async Task GetEmployeeMeetings(EmployeeRequest request, IServerStreamWriter<Meeting> responseStream, ServerCallContext context)
+        {
+            var meetings = _db.Meetings.Where(metting => metting.EmployeeId == request.Id);
+            var responses = meetings.Select(meeting =>
+                new Meeting {Id = meeting.Id, EmployeeId = meeting.EmployeeId, Text = meeting.Text, Title = meeting.Title});
+            
+            foreach (var response in responses)
+            {
+                await responseStream.WriteAsync(response);
+            }
+        }
 
         public override Task<Employee> CreateEmployee(Employee request, ServerCallContext context)
         {

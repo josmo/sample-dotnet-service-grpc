@@ -24,19 +24,23 @@ namespace Proto {
           string.Concat(
             "Cg5lbXBsb3llZS5wcm90bxIFcHJvdG8iQQoIRW1wbG95ZWUSDgoGU3RhdHVz",
             "GAEgASgJEgwKBE5hbWUYAiABKAkSCgoCSWQYAyABKAUSCwoDQWdlGAQgASgF",
-            "IicKFERlbGV0ZUVtcGxveWVlUmVzdWx0Eg8KB3N1Y2Nlc3MYASABKAgiHQoP",
-            "RW1wbG95ZWVSZXF1ZXN0EgoKAklkGAEgASgDMocCCg9FbXBsb3llZVNlcnZp",
-            "Y2USOAoLR2V0RW1wbG95ZWUSFi5wcm90by5FbXBsb3llZVJlcXVlc3QaDy5w",
-            "cm90by5FbXBsb3llZSIAEjsKDEdldEVtcGxveWVlcxIWLnByb3RvLkVtcGxv",
-            "eWVlUmVxdWVzdBoPLnByb3RvLkVtcGxveWVlIgAwARJHCg5EZWxldGVFbXBs",
-            "b3llZRIWLnByb3RvLkVtcGxveWVlUmVxdWVzdBobLnByb3RvLkRlbGV0ZUVt",
-            "cGxveWVlUmVzdWx0IgASNAoOQ3JlYXRlRW1wbG95ZWUSDy5wcm90by5FbXBs",
-            "b3llZRoPLnByb3RvLkVtcGxveWVlIgBCKQoQaW8uY2xhc3Npcy5wcm90b0IN",
-            "RW1wbG95ZWVQcm90b1ABogIDSExXYgZwcm90bzM="));
+            "IkYKB01lZXRpbmcSDAoEVGV4dBgBIAEoCRINCgVUaXRsZRgCIAEoCRISCgpF",
+            "bXBsb3llZUlkGAMgASgFEgoKAklkGAQgASgFIicKFERlbGV0ZUVtcGxveWVl",
+            "UmVzdWx0Eg8KB3N1Y2Nlc3MYASABKAgiHQoPRW1wbG95ZWVSZXF1ZXN0EgoK",
+            "AklkGAEgASgDMsoCCg9FbXBsb3llZVNlcnZpY2USOAoLR2V0RW1wbG95ZWUS",
+            "Fi5wcm90by5FbXBsb3llZVJlcXVlc3QaDy5wcm90by5FbXBsb3llZSIAEjsK",
+            "DEdldEVtcGxveWVlcxIWLnByb3RvLkVtcGxveWVlUmVxdWVzdBoPLnByb3Rv",
+            "LkVtcGxveWVlIgAwARJHCg5EZWxldGVFbXBsb3llZRIWLnByb3RvLkVtcGxv",
+            "eWVlUmVxdWVzdBobLnByb3RvLkRlbGV0ZUVtcGxveWVlUmVzdWx0IgASNAoO",
+            "Q3JlYXRlRW1wbG95ZWUSDy5wcm90by5FbXBsb3llZRoPLnByb3RvLkVtcGxv",
+            "eWVlIgASQQoTR2V0RW1wbG95ZWVNZWV0aW5ncxIWLnByb3RvLkVtcGxveWVl",
+            "UmVxdWVzdBoOLnByb3RvLk1lZXRpbmciADABQikKEGlvLmNsYXNzaXMucHJv",
+            "dG9CDUVtcGxveWVlUHJvdG9QAaICA0hMV2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Employee), global::Proto.Employee.Parser, new[]{ "Status", "Name", "Id", "Age" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Meeting), global::Proto.Meeting.Parser, new[]{ "Text", "Title", "EmployeeId", "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.DeleteEmployeeResult), global::Proto.DeleteEmployeeResult.Parser, new[]{ "Success" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.EmployeeRequest), global::Proto.EmployeeRequest.Parser, new[]{ "Id" }, null, null, null)
           }));
@@ -246,6 +250,207 @@ namespace Proto {
 
   }
 
+  public sealed partial class Meeting : pb::IMessage<Meeting> {
+    private static readonly pb::MessageParser<Meeting> _parser = new pb::MessageParser<Meeting>(() => new Meeting());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Meeting> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Proto.EmployeeReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Meeting() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Meeting(Meeting other) : this() {
+      text_ = other.text_;
+      title_ = other.title_;
+      employeeId_ = other.employeeId_;
+      id_ = other.id_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Meeting Clone() {
+      return new Meeting(this);
+    }
+
+    /// <summary>Field number for the "Text" field.</summary>
+    public const int TextFieldNumber = 1;
+    private string text_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Text {
+      get { return text_; }
+      set {
+        text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Title" field.</summary>
+    public const int TitleFieldNumber = 2;
+    private string title_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Title {
+      get { return title_; }
+      set {
+        title_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EmployeeId" field.</summary>
+    public const int EmployeeIdFieldNumber = 3;
+    private int employeeId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int EmployeeId {
+      get { return employeeId_; }
+      set {
+        employeeId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 4;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Meeting);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Meeting other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Text != other.Text) return false;
+      if (Title != other.Title) return false;
+      if (EmployeeId != other.EmployeeId) return false;
+      if (Id != other.Id) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Text.Length != 0) hash ^= Text.GetHashCode();
+      if (Title.Length != 0) hash ^= Title.GetHashCode();
+      if (EmployeeId != 0) hash ^= EmployeeId.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Text.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Text);
+      }
+      if (Title.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Title);
+      }
+      if (EmployeeId != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(EmployeeId);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Id);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Text.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+      }
+      if (Title.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
+      }
+      if (EmployeeId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(EmployeeId);
+      }
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Meeting other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Text.Length != 0) {
+        Text = other.Text;
+      }
+      if (other.Title.Length != 0) {
+        Title = other.Title;
+      }
+      if (other.EmployeeId != 0) {
+        EmployeeId = other.EmployeeId;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Text = input.ReadString();
+            break;
+          }
+          case 18: {
+            Title = input.ReadString();
+            break;
+          }
+          case 24: {
+            EmployeeId = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Id = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class DeleteEmployeeResult : pb::IMessage<DeleteEmployeeResult> {
     private static readonly pb::MessageParser<DeleteEmployeeResult> _parser = new pb::MessageParser<DeleteEmployeeResult>(() => new DeleteEmployeeResult());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -253,7 +458,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.EmployeeReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Proto.EmployeeReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -370,7 +575,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.EmployeeReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Proto.EmployeeReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

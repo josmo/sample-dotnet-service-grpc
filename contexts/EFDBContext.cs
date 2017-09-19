@@ -7,6 +7,7 @@ namespace proto1.contexts
     public class EFDBContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +25,7 @@ namespace proto1.contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().ToTable("Employees");
+            modelBuilder.Entity<Meeting>().ToTable("Meetings");
         }
     }
 }

@@ -12,6 +12,7 @@ service EmployeeService {
     rpc GetEmployees (EmployeeRequest) returns (stream Employee) {}
     rpc DeleteEmployee (EmployeeRequest) returns (DeleteEmployeeResult) {}
     rpc CreateEmployee (Employee) returns (Employee) {}
+    rpc GetEmployeeMeetings (EmployeeRequest) returns (stream Meeting) {}
 }
 
 message Employee {
@@ -21,6 +22,13 @@ message Employee {
     int32 Age = 4;
 }
 
+message Meeting {
+    string Text = 1;
+    string Title = 2;
+    int32  EmployeeId = 3;
+    int32  Id = 4;
+}
+
 message DeleteEmployeeResult {
     bool success = 1;
 }
@@ -28,4 +36,5 @@ message DeleteEmployeeResult {
 message EmployeeRequest {
     int64 Id = 1;
 }
+
 

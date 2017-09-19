@@ -16,6 +16,7 @@ namespace Proto {
     static readonly grpc::Marshaller<global::Proto.EmployeeRequest> __Marshaller_EmployeeRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.EmployeeRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Proto.Employee> __Marshaller_Employee = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Employee.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Proto.DeleteEmployeeResult> __Marshaller_DeleteEmployeeResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.DeleteEmployeeResult.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Proto.Meeting> __Marshaller_Meeting = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Meeting.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Proto.EmployeeRequest, global::Proto.Employee> __Method_GetEmployee = new grpc::Method<global::Proto.EmployeeRequest, global::Proto.Employee>(
         grpc::MethodType.Unary,
@@ -45,6 +46,13 @@ namespace Proto {
         __Marshaller_Employee,
         __Marshaller_Employee);
 
+    static readonly grpc::Method<global::Proto.EmployeeRequest, global::Proto.Meeting> __Method_GetEmployeeMeetings = new grpc::Method<global::Proto.EmployeeRequest, global::Proto.Meeting>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetEmployeeMeetings",
+        __Marshaller_EmployeeRequest,
+        __Marshaller_Meeting);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -70,6 +78,11 @@ namespace Proto {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Proto.Employee> CreateEmployee(global::Proto.Employee request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task GetEmployeeMeetings(global::Proto.EmployeeRequest request, grpc::IServerStreamWriter<global::Proto.Meeting> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -155,6 +168,14 @@ namespace Proto {
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateEmployee, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Proto.Meeting> GetEmployeeMeetings(global::Proto.EmployeeRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetEmployeeMeetings(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Proto.Meeting> GetEmployeeMeetings(global::Proto.EmployeeRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetEmployeeMeetings, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override EmployeeServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -170,7 +191,8 @@ namespace Proto {
           .AddMethod(__Method_GetEmployee, serviceImpl.GetEmployee)
           .AddMethod(__Method_GetEmployees, serviceImpl.GetEmployees)
           .AddMethod(__Method_DeleteEmployee, serviceImpl.DeleteEmployee)
-          .AddMethod(__Method_CreateEmployee, serviceImpl.CreateEmployee).Build();
+          .AddMethod(__Method_CreateEmployee, serviceImpl.CreateEmployee)
+          .AddMethod(__Method_GetEmployeeMeetings, serviceImpl.GetEmployeeMeetings).Build();
     }
 
   }
