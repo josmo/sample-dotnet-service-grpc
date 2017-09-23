@@ -18,12 +18,11 @@ namespace proto1
             Server server = new Server
             {
                 Services = { EmployeeService.BindService(new EmployeeImpl(new EFDBContext())) },
-                Ports = { new ServerPort("", Port, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
             };
             server.Start();
 
             Console.WriteLine("Greeter server listening on port " + Port);
-            Console.WriteLine("Press any key to stop the server...");
             testGRPC();
             Console.ReadKey();
             
