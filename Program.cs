@@ -18,7 +18,7 @@ namespace proto1
             Server server = new Server
             {
                 Services = { EmployeeService.BindService(new EmployeeImpl(new EFDBContext())) },
-                Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("", Port, ServerCredentials.Insecure) }
             };
             server.Start();
 
